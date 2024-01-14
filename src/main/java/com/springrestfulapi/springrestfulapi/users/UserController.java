@@ -1,4 +1,4 @@
-package com.springrestfulapi.springrestfulapi.controller;
+package com.springrestfulapi.springrestfulapi.users;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
