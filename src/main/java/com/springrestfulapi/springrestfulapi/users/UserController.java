@@ -1,23 +1,22 @@
 package com.springrestfulapi.springrestfulapi.users;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
-    List<UserModel> userlist = new ArrayList<>(Arrays.asList(
-        new UserModel(1, "username1"),
-        new UserModel(2, "username2"),
-        new UserModel(3, "username3"),
-        new UserModel(4, "username4")
-    ));
+    @Autowired private UserService userService;
 
     @GetMapping("/user")
     public List<UserModel> findAllUser() {
-        return userlist;
+        return userService.findAll();
     }
+
+    // @GetMapping("/user/{id}")
+    // public List<UserModel> findOneUser(@RequestParam String userId) {
+    //     Integer id = Integer.valueOf(userId);
+    //     return userService.findOneById(id);
+    // }
 }
